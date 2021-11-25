@@ -147,6 +147,6 @@ void loop() {
   {
     tone(piezoPin, 4000, 500); 
     Serial.println("No RF Signal");
-    delay(500);
+    delay(1000);
   }
 }
