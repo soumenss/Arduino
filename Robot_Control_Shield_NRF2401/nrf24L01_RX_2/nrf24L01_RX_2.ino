@@ -30,6 +30,7 @@ byte data[11]; // this is where controller data is saved.
 int joyth= 5;
 int joypos;
 int knobpos;
+int piezoPin = 3;
 
 void setup() {
   Serial.begin(9600);
@@ -141,5 +142,11 @@ void loop() {
       Serial.print(offs);
     }
     
+  }
+  else
+  {
+    tone(piezoPin, 4000, 500); 
+    Serial.println("No RF Signal");
+    delay(500);
   }
 }
