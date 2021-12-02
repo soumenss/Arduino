@@ -80,12 +80,12 @@ void loop() {
     
     if (data[1] < 128+joyth && data[1] > 128-joyth)
     {
-      Serial.print("JS: Center(U-D)");
+      Serial.print(" Center(U-D)");
     }
     if (data[1] <= 128-joyth)
     {
       joypos = map(data[1], 128-joyth, 0, 0, 100);
-      Serial.print("JS: ");
+      Serial.print(" ");
       Serial.print(joypos);
       Serial.print("% Down");
     }
