@@ -15,7 +15,7 @@ const byte address[6] = {192,168,0,255,17,48};
 Change it to avoid interference. Should be same for TX & RX
 all 6 bytes should be between 0-255
  */
-byte data[10];
+byte data[11];
 
 void setup() {
   radio.begin();
@@ -23,7 +23,7 @@ void setup() {
   /*setting min transmission power, write 
   radio.setPALevel(RF24_PA_MAX);
   for long range application. NRF will draw more current when set to high power mode*/
-  radio.setPALevel(RF24_PA_MIN); 
+  radio.setPALevel(RF24_PA_MAX); 
   radio.stopListening(); // set the tranceiver only as transmitter
 
   pinMode(2, INPUT); digitalWrite(2, HIGH);
@@ -41,20 +41,21 @@ void loop()
   // joystick, divide by 4 to be within 1 byte value
   data[0] = constrain(analogRead(A2)/4, 1, 255); 
   data[1] = constrain(analogRead(A3)/4, 1, 255);
+  data[2] = constrain(analogRead(A5)/4, 1, 255);
   
   //small buttons
-  data[2] = digitalRead(3) + 1;
-  data[3] = digitalRead(2) + 1;
+  data[3] = digitalRead(3);
+  data[4] = digitalRead(2);
   
   //big buttons
-  data[4] = digitalRead(4) + 1;
-  data[5] = digitalRead(7) + 1;
-  data[6] = digitalRead(5) + 1;
-  data[7] = digitalRead(6) + 1;
+  data[5] = digitalRead(4);
+  data[6] = digitalRead(7);
+  data[7] = digitalRead(5);
+  data[8] = digitalRead(6);
   
   //push switches
-  data[8] = digitalRead(14) + 1;
-  data[9] = digitalRead(15) + 1;
+  data[9] = digitalRead(14);
+  data[10] = digitalRead(15);
 
   
   radio.write(&data, sizeof(data));
