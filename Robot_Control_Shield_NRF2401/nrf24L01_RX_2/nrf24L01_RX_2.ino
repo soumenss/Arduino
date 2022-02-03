@@ -36,7 +36,7 @@ void setup() {
   Serial.begin(9600);
   radio.begin();
   radio.openReadingPipe(0, address); // set reading address
-  radio.setPALevel(RF24_PA_LOW   );// set min receiving power
+  radio.setPALevel(RF24_PA_MAX   );// set min receiving power
     /*
    for long range 
    radio.setPALevel(RF24_PA_MAX);
