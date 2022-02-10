@@ -1,4 +1,4 @@
-/*
+ /*
 This code uses "RF24" library. It's provided in the "NRF24" folder as zip file.
 To install this library, open Arduino IDE, then Sketch >> Include Library >> Add .Zip Library
 and then browse to the Radiohead.zip file.
